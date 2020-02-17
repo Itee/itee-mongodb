@@ -1,4 +1,4 @@
-console.log('Itee.Database.MongoDB v1.0.0 - CommonJs')
+console.log('Itee.Database.MongoDB v1.0.1 - CommonJs')
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
@@ -13,7 +13,7 @@ var stream = require('stream');
 var iteeUtils = require('itee-utils');
 var MongoDBDriver = require('mongoose');
 
-console.log('Itee.Database v8.0.0 - EsModule');
+console.log('Itee.Database v8.0.2 - EsModule');
 
 /**
  * @author [Tristan Valcke]{@link https://github.com/Itee}
@@ -935,7 +935,6 @@ class TAbstractFileConverter {
         const fileReadStream = fs.createReadStream( file );
 
         fileReadStream.on( 'error', ( error ) => {
-            console.error( `Read stream on error: ${error}` );
 
             isOnError = true;
             onError( error );

@@ -1,4 +1,4 @@
-console.log('Itee.Database.MongoDB v1.0.0 - EsModule')
+console.log('Itee.Database.MongoDB v1.0.1 - EsModule')
 import { isDefined, isArray, isObject, isString, isFunction, isNotDefined, isEmptyArray, isEmptyObject, isNotString, isEmptyString, isBlankString, isNotArray, isNotObject, isNull, isUndefined, isInvalidDirectoryPath, isEmptyFile } from 'itee-validators';
 import path from 'path';
 import { kStringMaxLength } from 'buffer';
@@ -7,7 +7,7 @@ import { Writable } from 'stream';
 import { getFilesPathsUnder } from 'itee-utils';
 import * as MongoDBDriver from 'mongoose';
 
-console.log('Itee.Database v8.0.0 - EsModule');
+console.log('Itee.Database v8.0.2 - EsModule');
 
 /**
  * @author [Tristan Valcke]{@link https://github.com/Itee}
@@ -929,7 +929,6 @@ class TAbstractFileConverter {
         const fileReadStream = fs.createReadStream( file );
 
         fileReadStream.on( 'error', ( error ) => {
-            console.error( `Read stream on error: ${error}` );
 
             isOnError = true;
             onError( error );
