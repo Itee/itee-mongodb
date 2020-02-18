@@ -16,9 +16,9 @@
 /* eslint-env node */
 
 const packageInfos = require( '../package' )
-const commonjs     = require( 'rollup-plugin-commonjs' )
 const path         = require( 'path' )
-const resolve      = require( 'rollup-plugin-node-resolve' )
+const commonjs     = require( '@rollup/plugin-commonjs' )
+const resolve      = require( '@rollup/plugin-node-resolve' )
 const terser       = require( 'rollup-plugin-terser' ).terser
 
 function _computeBanner ( name, format ) {
@@ -45,11 +45,11 @@ function _computeBanner ( name, format ) {
             break
 
         default:
-            throw new RangeError( `Invalid switch parameter: ${format}` )
+            throw new RangeError( `Invalid switch parameter: ${ format }` )
 
     }
 
-    return `console.log('${packageName} v${packageInfos.version} - ${prettyFormat}')`
+    return `console.log('${ packageName } v${ packageInfos.version } - ${ prettyFormat }')`
 
 }
 
@@ -80,16 +80,19 @@ function CreateRollupConfigs ( options ) {
             const env        = envs[ envIndex ]
             const isProd     = ( env.includes( 'prod' ) )
             const format     = formats[ formatIndex ]
-            const outputPath = ( isProd ) ? path.join( output, `${fileName}.${format}.min.js` ) : path.join( output, `${fileName}.${format}.js` )
+            const outputPath = ( isProd ) ? path.join( output, `${ fileName }.${ format }.min.js` ) : path.join( output, `${ fileName }.${ format }.js` )
 
             configs.push( {
-                input:    input,
-                external: [
+                input:     input,
+                external:  [
+                    'path', // Todo: use itee-utils
+
+                    'itee-database',
                     'itee-validators',
                     'itee-utils',
                     'mongoose'
                 ],
-                plugins: [
+                plugins:   [
                     commonjs( {
                         include: 'node_modules/**'
                     } ),
@@ -98,12 +101,12 @@ function CreateRollupConfigs ( options ) {
                     } ),
                     isProd && terser()
                 ],
-                onwarn: ( { loc, frame, message } ) => {
+                onwarn:    ( { loc, frame, message } ) => {
 
                     if ( loc ) {
-                        process.stderr.write( `/!\\ ${loc.file} (${loc.line}:${loc.column}) ${frame} ${message}\n` )
+                        process.stderr.write( `/!\\ ${ loc.file } (${ loc.line }:${ loc.column }) ${ frame } ${ message }\n` )
                     } else {
-                        process.stderr.write( `/!\\ ${message}\n` )
+                        process.stderr.write( `/!\\ ${ message }\n` )
                     }
 
                 },
