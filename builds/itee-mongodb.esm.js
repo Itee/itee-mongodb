@@ -1,4 +1,4 @@
-console.log('Itee.Database.MongoDB v1.0.2 - EsModule')
+console.log('Itee.Database.MongoDB v1.1.0 - EsModule')
 import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
 import { TAbstractDataController, TAbstractDatabasePlugin, TAbstractDatabase } from 'itee-database';
 import { getFilesPathsUnder } from 'itee-utils';
@@ -383,7 +383,11 @@ class TMongoDBDatabase extends TAbstractDatabase {
 
         const _parameters = {
             ...{
-                databaseUrl: ''
+                databaseUrl:     '',
+                databaseOptions: {
+                    useNewUrlParser:    true,
+                    useUnifiedTopology: true
+                }
             },
             ...parameters,
             ...{
@@ -393,7 +397,8 @@ class TMongoDBDatabase extends TAbstractDatabase {
 
         super( _parameters );
 
-        this.databaseUrl = _parameters.databaseUrl;
+        this.databaseUrl     = _parameters.databaseUrl;
+        this.databaseOptions = _parameters.databaseOptions;
 
     }
 
@@ -405,9 +410,9 @@ class TMongoDBDatabase extends TAbstractDatabase {
 
     connect () {
 
-        this._driver.connect( this.databaseUrl, { useNewUrlParser: true } )
-            .then( ( info ) => {
-                console.log( `MongoDB at ${this.databaseUrl} is connected ! ${info}` );
+        this._driver.connect( this.databaseUrl, this.databaseOptions )
+            .then( ( /*info*/ ) => {
+                console.log( `MongoDB at ${ this.databaseUrl } is connected !` );
             } )
             .catch( ( err ) => {
                 console.error( err );
