@@ -55,10 +55,10 @@
     },
     "dependencies": {},
     "peerDependencies": {
-        "itee-database": "^8.0.2",
+        "itee-database": "^8.1.0",
         "itee-utils": "^5.2.0",
         "itee-validators": "^5.2.0",
-        "mongoose": "^5.13.0"
+        "mongoose": "^5.13.1"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^19.0.0",
@@ -93,7 +93,7 @@
         "minimist": "^1.2.5",
         "mocha": "^9.0.1",
         "mochawesome": "^6.2.2",
-        "rollup": "^2.52.3",
+        "rollup": "^2.52.7",
         "rollup-plugin-terser": "^7.0.2",
         "semantic-release": "^17.4.4"
     },
