@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/Itee/itee-mongodb/compare/v1.1.1...v1.1.2) (2021-07-05)
+
+
+### Bug Fixes
+
+* **releaserc:** fix missing dev maps ([4358c12](https://github.com/Itee/itee-mongodb/commit/4358c12c1a8d8697263e0126d485ba496aae2f03))
+
 ## [1.1.1](https://github.com/Itee/itee-mongodb/compare/v1.1.0...v1.1.1) (2021-07-05)
 
 

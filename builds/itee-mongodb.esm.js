@@ -1,4 +1,4 @@
-console.log('Itee.Database.MongoDB v1.1.1 - EsModule')
+console.log('Itee.Database.MongoDB v1.1.2 - EsModule')
 import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
 import { TAbstractDataController, TAbstractDatabasePlugin, TAbstractDatabase } from 'itee-database';
 import { getFilesPathsUnder } from 'itee-utils';
