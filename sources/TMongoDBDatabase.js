@@ -46,10 +46,10 @@ class TMongoDBDatabase extends TAbstractDatabase {
 
         this._driver.connect( this.databaseUrl, this.databaseOptions )
             .then( ( /*info*/ ) => {
-                console.log( `MongoDB at ${ this.databaseUrl } is connected !` )
+                this.logger.log( `MongoDB at ${ this.databaseUrl } is connected !` )
             } )
             .catch( ( err ) => {
-                console.error( err )
+                this.logger.error( err )
             } )
 
     }
