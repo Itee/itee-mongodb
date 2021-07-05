@@ -15,11 +15,11 @@
 
 /* eslint-env node */
 
-const packageInfos = require( '../package' )
-const path         = require( 'path' )
-const commonjs     = require( '@rollup/plugin-commonjs' )
-const resolve      = require( '@rollup/plugin-node-resolve' )
-const terser       = require( 'rollup-plugin-terser' ).terser
+const packageInfos    = require( '../package' )
+const path            = require( 'path' )
+const commonjs        = require( '@rollup/plugin-commonjs' )
+const { nodeResolve } = require( '@rollup/plugin-node-resolve' )
+const terser          = require( 'rollup-plugin-terser' ).terser
 
 function _computeBanner ( name, format ) {
 
@@ -83,8 +83,8 @@ function CreateRollupConfigs ( options ) {
             const outputPath = ( isProd ) ? path.join( output, `${ fileName }.${ format }.min.js` ) : path.join( output, `${ fileName }.${ format }.js` )
 
             configs.push( {
-                input:    input,
-                external: [
+                input:     input,
+                external:  [
                     'path', // Todo: use itee-utils
 
                     'itee-database',
@@ -92,16 +92,20 @@ function CreateRollupConfigs ( options ) {
                     'itee-utils',
                     'mongoose'
                 ],
-                plugins: [
+                plugins:   [
                     commonjs( {
                         include: 'node_modules/**'
                     } ),
-                    resolve( {
+                    nodeResolve( {
                         preferBuiltins: true
                     } ),
                     isProd && terser()
                 ],
-                onwarn: ( { loc, frame, message } ) => {
+                onwarn:    ( {
+                    loc,
+                    frame,
+                    message
+                } ) => {
 
                     if ( loc ) {
                         process.stderr.write( `/!\\ ${ loc.file } (${ loc.line }:${ loc.column }) ${ frame } ${ message }\n` )
