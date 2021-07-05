@@ -1,15 +1,38 @@
-console.log('Itee.Database.MongoDB v1.1.0 - CommonJs')
+console.log('Itee.Database.MongoDB v1.1.1 - CommonJs')
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var iteeValidators = require('itee-validators');
 var iteeDatabase = require('itee-database');
 var iteeUtils = require('itee-utils');
-var path = _interopDefault(require('path'));
+var path = require('path');
 var MongoDBDriver = require('mongoose');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+function _interopNamespace(e) {
+	if (e && e.__esModule) return e;
+	var n = Object.create(null);
+	if (e) {
+		Object.keys(e).forEach(function (k) {
+			if (k !== 'default') {
+				var d = Object.getOwnPropertyDescriptor(e, k);
+				Object.defineProperty(n, k, d.get ? d : {
+					enumerable: true,
+					get: function () {
+						return e[k];
+					}
+				});
+			}
+		});
+	}
+	n['default'] = e;
+	return Object.freeze(n);
+}
+
+var path__default = /*#__PURE__*/_interopDefaultLegacy(path);
+var MongoDBDriver__namespace = /*#__PURE__*/_interopNamespace(MongoDBDriver);
 
 /**
  * @author [Tristan Valcke]{@link https://github.com/Itee}
@@ -76,7 +99,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
     _deleteAll ( response ) {
         super._deleteAll( response );
 
-        this._databaseSchema.collection.drop( this.return( response ) );
+        this._databaseSchema.collection.drop( TMongooseController.return( response ) );
 
     }
 
@@ -93,8 +116,8 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
         this._databaseSchema
             .findByIdAndDelete( id )
-            .then( data => iteeDatabase.TAbstractDataController.returnData( data, response ) )
-            .catch( error => iteeDatabase.TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -112,8 +135,8 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
             .find( {}, projection )
             .lean()
             .exec()
-            .then( data => iteeDatabase.TAbstractDataController.returnData( data, response ) )
-            .catch( error => iteeDatabase.TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -127,18 +150,18 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
             .then( ( data ) => {
 
                 if ( iteeValidators.isNull( data ) || iteeValidators.isEmptyArray( data ) ) {
-                    iteeDatabase.TAbstractDataController.returnNotFound( response );
+                    TMongooseController.returnNotFound( response );
                 } else if ( ids.length !== data.length ) {
-                    iteeDatabase.TAbstractDataController.returnErrorAndData( {
+                    TMongooseController.returnErrorAndData( {
                         title:   'Missing data',
                         message: 'Some requested objects could not be found.'
                     }, data, response );
                 } else {
-                    iteeDatabase.TAbstractDataController.returnData( data, response );
+                    TMongooseController.returnData( data, response );
                 }
 
             } )
-            .catch( error => iteeDatabase.TAbstractDataController.returnError( error, response ) );
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -153,13 +176,13 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
             .then( ( data ) => {
 
                 if ( iteeValidators.isNull( data ) ) {
-                    iteeDatabase.TAbstractDataController.returnNotFound( response );
+                    TMongooseController.returnNotFound( response );
                 } else {
-                    iteeDatabase.TAbstractDataController.returnData( data, response );
+                    TMongooseController.returnData( data, response );
                 }
 
             } )
-            .catch( error => iteeDatabase.TAbstractDataController.returnError( error, response ) );
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -170,22 +193,22 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
             .find( query, projection )
             .lean()
             .exec()
-            .then( data => iteeDatabase.TAbstractDataController.returnData( data, response ) )
-            .catch( error => iteeDatabase.TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
     _updateAll ( update, response ) {
         super._updateAll( update, response );
 
-        this._databaseSchema.update( {}, update, { multi: true }, this.return( response ) );
+        this._databaseSchema.update( {}, update, { multi: true }, TMongooseController.return( response ) );
 
     }
 
     _updateMany ( ids, updates, response ) {
         super._updateMany( ids, updates, response );
 
-        this._databaseSchema.update( { _id: { $in: ids } }, updates, { multi: true }, this.return( response ) );
+        this._databaseSchema.update( { _id: { $in: ids } }, updates, { multi: true }, TMongooseController.return( response ) );
 
     }
 
@@ -196,15 +219,15 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
         this._databaseSchema
             .findByIdAndUpdate( id, update )
             .exec()
-            .then( data => iteeDatabase.TAbstractDataController.returnData( data, response ) )
-            .catch( error => iteeDatabase.TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
     _updateWhere ( query, update, response ) {
         super._updateWhere( query, update, response );
 
-        this._databaseSchema.update( query, update, { multi: true }, this.return( response ) );
+        this._databaseSchema.update( query, update, { multi: true }, TMongooseController.return( response ) );
 
     }
 
@@ -283,12 +306,12 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
     _searchLocalTypes () {
 
-        const typesBasePath = path.join( this.__dirname, 'types' );
+        const typesBasePath = path__default['default'].join( this.__dirname, 'types' );
         if ( iteeValidators.isInvalidDirectoryPath( typesBasePath ) ) {
-            console.warn( `Unable to find "types" folder for path "${typesBasePath}"` );
+            this.logger.warn( `Unable to find "types" folder for path "${typesBasePath}"` );
             return
         } else {
-            console.log( `Add types from: ${typesBasePath}` );
+            this.logger.log( `Add types from: ${typesBasePath}` );
         }
 
         const typesFilesPaths = iteeUtils.getFilesPathsUnder( typesBasePath );
@@ -309,7 +332,7 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
         for ( let type of this._types ) {
 
-            console.log( `Register type: ${type.name}` );
+            this.logger.log( `Register type: ${type.name}` );
             type( Mongoose );
 
         }
@@ -318,12 +341,12 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
     _searchLocalSchemas () {
 
-        const localSchemasBasePath = path.join( this.__dirname, 'schemas' );
+        const localSchemasBasePath = path__default['default'].join( this.__dirname, 'schemas' );
         if ( iteeValidators.isInvalidDirectoryPath( localSchemasBasePath ) ) {
-            console.warn( `Unable to find "schemas" folder for path "${localSchemasBasePath}"` );
+            this.logger.warn( `Unable to find "schemas" folder for path "${localSchemasBasePath}"` );
             return
         } else {
-            console.log( `Add schemas from: ${localSchemasBasePath}` );
+            this.logger.log( `Add schemas from: ${localSchemasBasePath}` );
         }
 
         const localSchemasFilesPaths = iteeUtils.getFilesPathsUnder( localSchemasBasePath );
@@ -335,7 +358,7 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
             if ( iteeValidators.isEmptyFile( localSchemaFilePath ) ) {
 
-                console.warn( `Skip empty local database schema: ${localSchemaFilePath}` );
+                this.logger.warn( `Skip empty local database schema: ${localSchemaFilePath}` );
                 continue
 
             }
@@ -351,7 +374,7 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
         for ( let schema of this._schemas ) {
 
-            console.log( `Register schema: ${schema.name}` );
+            this.logger.log( `Register schema: ${schema.name}` );
 
             if ( iteeValidators.isFunction( schema.registerModelTo ) ) {
 
@@ -363,7 +386,7 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
             } else {
 
-                console.error( `Unable to register local database schema: ${schema}` );
+                this.logger.error( `Unable to register local database schema: ${schema}` );
 
             }
 
@@ -397,7 +420,7 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
             },
             ...parameters,
             ...{
-                driver: MongoDBDriver
+                driver: MongoDBDriver__namespace
             }
         };
 
@@ -418,10 +441,10 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
 
         this._driver.connect( this.databaseUrl, this.databaseOptions )
             .then( ( /*info*/ ) => {
-                console.log( `MongoDB at ${ this.databaseUrl } is connected !` );
+                this.logger.log( `MongoDB at ${ this.databaseUrl } is connected !` );
             } )
             .catch( ( err ) => {
-                console.error( err );
+                this.logger.error( err );
             } );
 
     }

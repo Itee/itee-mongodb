@@ -1,4 +1,4 @@
-console.log('Itee.Database.MongoDB v1.1.0 - EsModule')
+console.log('Itee.Database.MongoDB v1.1.1 - EsModule')
 import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
 import { TAbstractDataController, TAbstractDatabasePlugin, TAbstractDatabase } from 'itee-database';
 import { getFilesPathsUnder } from 'itee-utils';
@@ -70,7 +70,7 @@ class TMongooseController extends TAbstractDataController {
     _deleteAll ( response ) {
         super._deleteAll( response );
 
-        this._databaseSchema.collection.drop( this.return( response ) );
+        this._databaseSchema.collection.drop( TMongooseController.return( response ) );
 
     }
 
@@ -87,8 +87,8 @@ class TMongooseController extends TAbstractDataController {
 
         this._databaseSchema
             .findByIdAndDelete( id )
-            .then( data => TAbstractDataController.returnData( data, response ) )
-            .catch( error => TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -106,8 +106,8 @@ class TMongooseController extends TAbstractDataController {
             .find( {}, projection )
             .lean()
             .exec()
-            .then( data => TAbstractDataController.returnData( data, response ) )
-            .catch( error => TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -121,18 +121,18 @@ class TMongooseController extends TAbstractDataController {
             .then( ( data ) => {
 
                 if ( isNull( data ) || isEmptyArray( data ) ) {
-                    TAbstractDataController.returnNotFound( response );
+                    TMongooseController.returnNotFound( response );
                 } else if ( ids.length !== data.length ) {
-                    TAbstractDataController.returnErrorAndData( {
+                    TMongooseController.returnErrorAndData( {
                         title:   'Missing data',
                         message: 'Some requested objects could not be found.'
                     }, data, response );
                 } else {
-                    TAbstractDataController.returnData( data, response );
+                    TMongooseController.returnData( data, response );
                 }
 
             } )
-            .catch( error => TAbstractDataController.returnError( error, response ) );
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -147,13 +147,13 @@ class TMongooseController extends TAbstractDataController {
             .then( ( data ) => {
 
                 if ( isNull( data ) ) {
-                    TAbstractDataController.returnNotFound( response );
+                    TMongooseController.returnNotFound( response );
                 } else {
-                    TAbstractDataController.returnData( data, response );
+                    TMongooseController.returnData( data, response );
                 }
 
             } )
-            .catch( error => TAbstractDataController.returnError( error, response ) );
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
@@ -164,22 +164,22 @@ class TMongooseController extends TAbstractDataController {
             .find( query, projection )
             .lean()
             .exec()
-            .then( data => TAbstractDataController.returnData( data, response ) )
-            .catch( error => TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
     _updateAll ( update, response ) {
         super._updateAll( update, response );
 
-        this._databaseSchema.update( {}, update, { multi: true }, this.return( response ) );
+        this._databaseSchema.update( {}, update, { multi: true }, TMongooseController.return( response ) );
 
     }
 
     _updateMany ( ids, updates, response ) {
         super._updateMany( ids, updates, response );
 
-        this._databaseSchema.update( { _id: { $in: ids } }, updates, { multi: true }, this.return( response ) );
+        this._databaseSchema.update( { _id: { $in: ids } }, updates, { multi: true }, TMongooseController.return( response ) );
 
     }
 
@@ -190,15 +190,15 @@ class TMongooseController extends TAbstractDataController {
         this._databaseSchema
             .findByIdAndUpdate( id, update )
             .exec()
-            .then( data => TAbstractDataController.returnData( data, response ) )
-            .catch( error => TAbstractDataController.returnError( error, response ) );
+            .then( data => TMongooseController.returnData( data, response ) )
+            .catch( error => TMongooseController.returnError( error, response ) );
 
     }
 
     _updateWhere ( query, update, response ) {
         super._updateWhere( query, update, response );
 
-        this._databaseSchema.update( query, update, { multi: true }, this.return( response ) );
+        this._databaseSchema.update( query, update, { multi: true }, TMongooseController.return( response ) );
 
     }
 
@@ -279,10 +279,10 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         const typesBasePath = path.join( this.__dirname, 'types' );
         if ( isInvalidDirectoryPath( typesBasePath ) ) {
-            console.warn( `Unable to find "types" folder for path "${typesBasePath}"` );
+            this.logger.warn( `Unable to find "types" folder for path "${typesBasePath}"` );
             return
         } else {
-            console.log( `Add types from: ${typesBasePath}` );
+            this.logger.log( `Add types from: ${typesBasePath}` );
         }
 
         const typesFilesPaths = getFilesPathsUnder( typesBasePath );
@@ -303,7 +303,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         for ( let type of this._types ) {
 
-            console.log( `Register type: ${type.name}` );
+            this.logger.log( `Register type: ${type.name}` );
             type( Mongoose );
 
         }
@@ -314,10 +314,10 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         const localSchemasBasePath = path.join( this.__dirname, 'schemas' );
         if ( isInvalidDirectoryPath( localSchemasBasePath ) ) {
-            console.warn( `Unable to find "schemas" folder for path "${localSchemasBasePath}"` );
+            this.logger.warn( `Unable to find "schemas" folder for path "${localSchemasBasePath}"` );
             return
         } else {
-            console.log( `Add schemas from: ${localSchemasBasePath}` );
+            this.logger.log( `Add schemas from: ${localSchemasBasePath}` );
         }
 
         const localSchemasFilesPaths = getFilesPathsUnder( localSchemasBasePath );
@@ -329,7 +329,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
             if ( isEmptyFile( localSchemaFilePath ) ) {
 
-                console.warn( `Skip empty local database schema: ${localSchemaFilePath}` );
+                this.logger.warn( `Skip empty local database schema: ${localSchemaFilePath}` );
                 continue
 
             }
@@ -345,7 +345,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         for ( let schema of this._schemas ) {
 
-            console.log( `Register schema: ${schema.name}` );
+            this.logger.log( `Register schema: ${schema.name}` );
 
             if ( isFunction( schema.registerModelTo ) ) {
 
@@ -357,7 +357,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
             } else {
 
-                console.error( `Unable to register local database schema: ${schema}` );
+                this.logger.error( `Unable to register local database schema: ${schema}` );
 
             }
 
@@ -412,10 +412,10 @@ class TMongoDBDatabase extends TAbstractDatabase {
 
         this._driver.connect( this.databaseUrl, this.databaseOptions )
             .then( ( /*info*/ ) => {
-                console.log( `MongoDB at ${ this.databaseUrl } is connected !` );
+                this.logger.log( `MongoDB at ${ this.databaseUrl } is connected !` );
             } )
             .catch( ( err ) => {
-                console.error( err );
+                this.logger.error( err );
             } );
 
     }
