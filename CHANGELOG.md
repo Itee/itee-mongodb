@@ -1,3 +1,12 @@
+## [1.1.3](https://github.com/Itee/itee-mongodb/compare/v1.1.2...v1.1.3) (2021-07-08)
+
+
+### Bug Fixes
+
+* **mongoose:** fix driver import usage ([becb53a](https://github.com/Itee/itee-mongodb/commit/becb53a70b060d737f11461a5490589e04abc263))
+* **package:** apply dependencies fix ([ced7065](https://github.com/Itee/itee-mongodb/commit/ced7065d220eda913e78cd362d7a31d2da8cdc55))
+* **package:** apply fix from dependencies ([1b079c4](https://github.com/Itee/itee-mongodb/commit/1b079c43a8127eee4ef72e45ae6f647ab82806c4))
+
 ## [1.1.2](https://github.com/Itee/itee-mongodb/compare/v1.1.1...v1.1.2) (2021-07-05)
 
 

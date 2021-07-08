@@ -1,9 +1,9 @@
-console.log('Itee.Database.MongoDB v1.1.2 - EsModule')
+console.log('Itee.Database.MongoDB v1.1.3 - EsModule')
 import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
 import { TAbstractDataController, TAbstractDatabasePlugin, TAbstractDatabase } from 'itee-database';
+import Mongoose from 'mongoose';
 import { getFilesPathsUnder } from 'itee-utils';
-import path from 'path';
-import * as MongoDBDriver from 'mongoose';
+import { join } from 'path';
 
 /**
  * @author [Tristan Valcke]{@link https://github.com/Itee}
@@ -19,9 +19,12 @@ class TMongooseController extends TAbstractDataController {
 
         const _parameters = {
             ...{
-                driver:     null,
                 schemaName: ''
-            }, ...parameters
+            },
+            ...parameters,
+            ...{
+                driver: Mongoose
+            }
         };
 
         super( _parameters );
@@ -277,12 +280,12 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     _searchLocalTypes () {
 
-        const typesBasePath = path.join( this.__dirname, 'types' );
+        const typesBasePath = join( this.__dirname, 'types' );
         if ( isInvalidDirectoryPath( typesBasePath ) ) {
-            this.logger.warn( `Unable to find "types" folder for path "${typesBasePath}"` );
+            this.logger.warn( `Unable to find "types" folder for path "${ typesBasePath }"` );
             return
         } else {
-            this.logger.log( `Add types from: ${typesBasePath}` );
+            this.logger.log( `Add types from: ${ typesBasePath }` );
         }
 
         const typesFilesPaths = getFilesPathsUnder( typesBasePath );
@@ -303,7 +306,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         for ( let type of this._types ) {
 
-            this.logger.log( `Register type: ${type.name}` );
+            this.logger.log( `Register type: ${ type.name }` );
             type( Mongoose );
 
         }
@@ -312,12 +315,12 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     _searchLocalSchemas () {
 
-        const localSchemasBasePath = path.join( this.__dirname, 'schemas' );
+        const localSchemasBasePath = join( this.__dirname, 'schemas' );
         if ( isInvalidDirectoryPath( localSchemasBasePath ) ) {
-            this.logger.warn( `Unable to find "schemas" folder for path "${localSchemasBasePath}"` );
+            this.logger.warn( `Unable to find "schemas" folder for path "${ localSchemasBasePath }"` );
             return
         } else {
-            this.logger.log( `Add schemas from: ${localSchemasBasePath}` );
+            this.logger.log( `Add schemas from: ${ localSchemasBasePath }` );
         }
 
         const localSchemasFilesPaths = getFilesPathsUnder( localSchemasBasePath );
@@ -329,7 +332,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
             if ( isEmptyFile( localSchemaFilePath ) ) {
 
-                this.logger.warn( `Skip empty local database schema: ${localSchemaFilePath}` );
+                this.logger.warn( `Skip empty local database schema: ${ localSchemaFilePath }` );
                 continue
 
             }
@@ -345,7 +348,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         for ( let schema of this._schemas ) {
 
-            this.logger.log( `Register schema: ${schema.name}` );
+            this.logger.log( `Register schema: ${ schema.name }` );
 
             if ( isFunction( schema.registerModelTo ) ) {
 
@@ -357,7 +360,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
             } else {
 
-                this.logger.error( `Unable to register local database schema: ${schema}` );
+                this.logger.error( `Unable to register local database schema: ${ schema }` );
 
             }
 
@@ -391,7 +394,7 @@ class TMongoDBDatabase extends TAbstractDatabase {
             },
             ...parameters,
             ...{
-                driver: MongoDBDriver
+                driver: Mongoose
             }
         };
 
