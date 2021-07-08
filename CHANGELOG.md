@@ -1,3 +1,28 @@
+## [1.1.3](https://github.com/Itee/itee-mongodb/compare/v1.1.2...v1.1.3) (2021-07-08)
+
+
+### Bug Fixes
+
+* **mongoose:** fix driver import usage ([becb53a](https://github.com/Itee/itee-mongodb/commit/becb53a70b060d737f11461a5490589e04abc263))
+* **package:** apply dependencies fix ([ced7065](https://github.com/Itee/itee-mongodb/commit/ced7065d220eda913e78cd362d7a31d2da8cdc55))
+* **package:** apply fix from dependencies ([1b079c4](https://github.com/Itee/itee-mongodb/commit/1b079c43a8127eee4ef72e45ae6f647ab82806c4))
+
+## [1.1.2](https://github.com/Itee/itee-mongodb/compare/v1.1.1...v1.1.2) (2021-07-05)
+
+
+### Bug Fixes
+
+* **releaserc:** fix missing dev maps ([4358c12](https://github.com/Itee/itee-mongodb/commit/4358c12c1a8d8697263e0126d485ba496aae2f03))
+
+## [1.1.1](https://github.com/Itee/itee-mongodb/compare/v1.1.0...v1.1.1) (2021-07-05)
+
+
+### Bug Fixes
+
+* **package:** apply npm audit fix ([e14f631](https://github.com/Itee/itee-mongodb/commit/e14f6316a2f0941b30b30663b682d4fef5fea27d))
+* **package:** update all dependencies to their latest version ([d351fa1](https://github.com/Itee/itee-mongodb/commit/d351fa1886de758f3a51d9671fbb8230f0f6b7b4))
+* **rollupconfig:** fix plugin-node-resolve import ([482e5bf](https://github.com/Itee/itee-mongodb/commit/482e5bfe47a6c420b4050a7115b8fb9d1654bf6d))
+
 # [1.1.0](https://github.com/Itee/itee-mongodb/compare/v1.0.2...v1.1.0) (2020-02-24)
 
 
