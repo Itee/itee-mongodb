@@ -12,6 +12,7 @@ import {
     isUndefined
 }                                  from 'itee-validators'
 import { TAbstractDataController } from 'itee-database'
+import Mongoose                    from 'mongoose'
 
 class TMongooseController extends TAbstractDataController {
 
@@ -19,9 +20,12 @@ class TMongooseController extends TAbstractDataController {
 
         const _parameters = {
             ...{
-                driver:     null,
                 schemaName: ''
-            }, ...parameters
+            },
+            ...parameters,
+            ...{
+                driver: Mongoose
+            }
         }
 
         super( _parameters )

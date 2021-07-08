@@ -9,7 +9,7 @@
  */
 
 import { TAbstractDatabase } from 'itee-database'
-import * as MongoDBDriver    from 'mongoose'
+import Mongoose              from 'mongoose'
 
 class TMongoDBDatabase extends TAbstractDatabase {
 
@@ -25,7 +25,7 @@ class TMongoDBDatabase extends TAbstractDatabase {
             },
             ...parameters,
             ...{
-                driver: MongoDBDriver
+                driver: Mongoose
             }
         }
 

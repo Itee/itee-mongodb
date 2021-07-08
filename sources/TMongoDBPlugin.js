@@ -14,7 +14,7 @@ import {
     isFunction,
     isInvalidDirectoryPath
 }                                  from 'itee-validators'
-import path                        from 'path'
+import { join }                    from 'path'
 import { TAbstractDatabasePlugin } from 'itee-database'
 
 class TMongoDBPlugin extends TAbstractDatabasePlugin {
@@ -80,12 +80,12 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     _searchLocalTypes () {
 
-        const typesBasePath = path.join( this.__dirname, 'types' )
+        const typesBasePath = join( this.__dirname, 'types' )
         if ( isInvalidDirectoryPath( typesBasePath ) ) {
-            this.logger.warn( `Unable to find "types" folder for path "${typesBasePath}"` )
+            this.logger.warn( `Unable to find "types" folder for path "${ typesBasePath }"` )
             return
         } else {
-            this.logger.log( `Add types from: ${typesBasePath}` )
+            this.logger.log( `Add types from: ${ typesBasePath }` )
         }
 
         const typesFilesPaths = getFilesPathsUnder( typesBasePath )
@@ -106,7 +106,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         for ( let type of this._types ) {
 
-            this.logger.log( `Register type: ${type.name}` )
+            this.logger.log( `Register type: ${ type.name }` )
             type( Mongoose )
 
         }
@@ -115,12 +115,12 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     _searchLocalSchemas () {
 
-        const localSchemasBasePath = path.join( this.__dirname, 'schemas' )
+        const localSchemasBasePath = join( this.__dirname, 'schemas' )
         if ( isInvalidDirectoryPath( localSchemasBasePath ) ) {
-            this.logger.warn( `Unable to find "schemas" folder for path "${localSchemasBasePath}"` )
+            this.logger.warn( `Unable to find "schemas" folder for path "${ localSchemasBasePath }"` )
             return
         } else {
-            this.logger.log( `Add schemas from: ${localSchemasBasePath}` )
+            this.logger.log( `Add schemas from: ${ localSchemasBasePath }` )
         }
 
         const localSchemasFilesPaths = getFilesPathsUnder( localSchemasBasePath )
@@ -132,7 +132,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
             if ( isEmptyFile( localSchemaFilePath ) ) {
 
-                this.logger.warn( `Skip empty local database schema: ${localSchemaFilePath}` )
+                this.logger.warn( `Skip empty local database schema: ${ localSchemaFilePath }` )
                 continue
 
             }
@@ -148,7 +148,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
         for ( let schema of this._schemas ) {
 
-            this.logger.log( `Register schema: ${schema.name}` )
+            this.logger.log( `Register schema: ${ schema.name }` )
 
             if ( isFunction( schema.registerModelTo ) ) {
 
@@ -160,7 +160,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
             } else {
 
-                this.logger.error( `Unable to register local database schema: ${schema}` )
+                this.logger.error( `Unable to register local database schema: ${ schema }` )
 
             }
 
