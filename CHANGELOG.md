@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/Itee/itee-mongodb/compare/v1.1.3...v1.1.4) (2021-07-21)
+
+
+### Bug Fixes
+
+* **readme:** add simple readme content ([4bab388](https://github.com/Itee/itee-mongodb/commit/4bab388861e96119ff69eb34e6a72bf737e54aca))
+
 ## [1.1.3](https://github.com/Itee/itee-mongodb/compare/v1.1.2...v1.1.3) (2021-07-08)
 
 

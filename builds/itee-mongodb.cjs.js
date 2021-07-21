@@ -1,4 +1,4 @@
-console.log('Itee.Database.MongoDB v1.1.3 - CommonJs')
+console.log('Itee.Database.MongoDB v1.1.4 - CommonJs')
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
