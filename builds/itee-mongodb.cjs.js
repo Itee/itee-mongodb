@@ -1,10 +1,10 @@
-console.log('Itee.Database.MongoDB v1.1.4 - CommonJs')
+console.log('Itee.Database.MongoDB v1.1.5 - CommonJs')
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var iteeValidators = require('itee-validators');
 var iteeDatabase = require('itee-database');
+var iteeValidators = require('itee-validators');
 var Mongoose = require('mongoose');
 var iteeUtils = require('itee-utils');
 var path = require('path');
@@ -31,7 +31,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
             },
             ...parameters,
             ...{
-                driver: Mongoose__default['default']
+                driver: Mongoose__default["default"]
             }
         };
 
@@ -402,7 +402,7 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
             },
             ...parameters,
             ...{
-                driver: Mongoose__default['default']
+                driver: Mongoose__default["default"]
             }
         };
 
