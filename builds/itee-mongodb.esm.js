@@ -1,6 +1,6 @@
-console.log('Itee.Database.MongoDB v1.1.4 - EsModule')
-import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
+console.log('Itee.Database.MongoDB v1.1.5 - EsModule')
 import { TAbstractDataController, TAbstractDatabasePlugin, TAbstractDatabase } from 'itee-database';
+import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
 import Mongoose from 'mongoose';
 import { getFilesPathsUnder } from 'itee-utils';
 import { join } from 'path';

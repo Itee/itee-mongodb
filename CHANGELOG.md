@@ -1,3 +1,11 @@
+## [1.1.5](https://github.com/Itee/itee-mongodb/compare/v1.1.4...v1.1.5) (2022-02-14)
+
+
+### Bug Fixes
+
+* **package:** apply npm run audit fix ([97502ef](https://github.com/Itee/itee-mongodb/commit/97502ef2c8818038d4f2bfb721223d6dcb2c53d1))
+* **package:** update deps to latest version ([b0a9b8f](https://github.com/Itee/itee-mongodb/commit/b0a9b8f0b2c45420df2341eb3303cbf3c5f43132))
+
 ## [1.1.4](https://github.com/Itee/itee-mongodb/compare/v1.1.3...v1.1.4) (2021-07-21)
 
 
