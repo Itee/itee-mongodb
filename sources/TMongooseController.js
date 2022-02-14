@@ -6,12 +6,12 @@
  * @classdesc The TMongooseController is the base class to perform CRUD operations on the database
  */
 
+import { TAbstractDataController } from 'itee-database'
 import {
     isEmptyArray,
     isNull,
     isUndefined
 }                                  from 'itee-validators'
-import { TAbstractDataController } from 'itee-database'
 import Mongoose                    from 'mongoose'
 
 class TMongooseController extends TAbstractDataController {

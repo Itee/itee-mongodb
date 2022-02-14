@@ -8,6 +8,7 @@
  *
  */
 
+import { TAbstractDatabasePlugin } from 'itee-database'
 import { getFilesPathsUnder }      from 'itee-utils'
 import {
     isEmptyFile,
@@ -15,7 +16,6 @@ import {
     isInvalidDirectoryPath
 }                                  from 'itee-validators'
 import { join }                    from 'path'
-import { TAbstractDatabasePlugin } from 'itee-database'
 
 class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
