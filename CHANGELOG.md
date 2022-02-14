@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/Itee/itee-mongodb/compare/v1.1.5...v1.1.6) (2022-02-14)
+
+
+### Bug Fixes
+
+* **package:** update deps to latest version ([fb05bbb](https://github.com/Itee/itee-mongodb/commit/fb05bbbc03fead0c4d735bb0f1ca2ac5b81b3780))
+
 ## [1.1.5](https://github.com/Itee/itee-mongodb/compare/v1.1.4...v1.1.5) (2022-02-14)
 
 

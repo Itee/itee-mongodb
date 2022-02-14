@@ -1,4 +1,4 @@
-console.log('Itee.Database.MongoDB v1.1.5 - EsModule')
+console.log('Itee.Database.MongoDB v1.1.6 - EsModule')
 import { TAbstractDataController, TAbstractDatabasePlugin, TAbstractDatabase } from 'itee-database';
 import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
 import Mongoose from 'mongoose';
