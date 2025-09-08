@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/Itee/itee-mongodb/compare/v1.1.6...v1.1.7) (2025-09-08)
+
+
+### Bug Fixes
+
+* **tmongodbdatabase:** add database url filter for password in log output ([e96d051](https://github.com/Itee/itee-mongodb/commit/e96d051c1f5d0542a1e0b6c8ec13a7520de946e4))
+
 ## [1.1.6](https://github.com/Itee/itee-mongodb/compare/v1.1.5...v1.1.6) (2022-02-14)
 
 
