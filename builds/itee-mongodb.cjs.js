@@ -421,10 +421,23 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
 
     connect () {
 
-        this._driver.connect( this.databaseUrl, this.databaseOptions )
-            .then( ( /*info*/ ) => {
-                this.logger.log( `MongoDB at ${ this.databaseUrl } is connected !` );
+        this._driver
+            .connect( this.databaseUrl, this.databaseOptions )
+            .then( ( info ) => {
+                this.logger.log( info );
             } )
+            .then( ( /*info*/ ) => {
+                const regex      = /:(\w*)@/g;
+                const matchs     = this.databaseUrl.match( regex );
+                const escapedUrl = ( matchs )
+                    ? this.databaseUrl.replace( matchs[ 0 ], ':*******@' )
+                    : this.databaseUrl;
+
+                this.logger.log( `MongoDB at ${ escapedUrl } is connected !` );
+            } )
+            // .then( ( what ) => {
+            //     this.logger.log( `MongoDB at ${ escapedUrl } is connected !` )
+            // } )
             .catch( ( err ) => {
                 this.logger.error( err );
             } );

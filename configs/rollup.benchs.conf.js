@@ -2,7 +2,7 @@
  * @author [Tristan Valcke]{@link https://github.com/Itee}
  * @license [BSD-3-Clause]{@link https://opensource.org/licenses/BSD-3-Clause}
  *
- * @module Config-Rollup-Test
+ * @module configs/Rollup-Test
  * @description The file manage the rollup configuration for build tests
  */
 
@@ -14,34 +14,36 @@ const packageInfos = require( '../package' )
  * @generator
  * @return {Array.<json>} An array of rollup configuration
  */
-function CreateTestsRollupConfigs ( /*options*/ ) {
+function CreateBenchmarksRollupConfigs ( /*options*/ ) {
     'use strict'
 
     return [
+        // For Node
         {
-            input:     `tests/units/units.js`,
+            input:     `tests/benchmarks/${packageInfos.name}.benchs.js`,
             plugins:   [],
             treeshake: true,
             output:    {
                 indent: '\t',
-                format: 'iife',
-                name:   'Itee.Units',
-                file:   `tests/builds/${packageInfos.name}.units.js`
+                format: 'cjs',
+                name:   'Itee.Benchs',
+                file:   `tests/benchmarks/builds/${packageInfos.name}.benchs.cjs.js`
             }
         },
+        // For Karma
         {
-            input:     `tests/benchmarks/benchs.js`,
+            input:     `tests/benchmarks/${packageInfos.name}.benchs.js`,
             plugins:   [],
             treeshake: true,
             output:    {
                 indent: '\t',
                 format: 'iife',
                 name:   'Itee.Benchs',
-                file:   `tests/builds/${packageInfos.name}.benchs.js`
+                file:   `tests/benchmarks/builds/${packageInfos.name}.benchs.iife.js`
             }
-        }
+        },
     ]
 
 }
 
-module.exports = CreateTestsRollupConfigs
+module.exports = CreateBenchmarksRollupConfigs
