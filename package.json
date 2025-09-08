@@ -54,9 +54,9 @@
         "postversion": "gulp build"
     },
     "dependencies": {
-        "itee-database": "^8.1.5",
-        "itee-utils": "^5.3.2",
-        "itee-validators": "^5.3.5"
+        "itee-database": "^8.2.2",
+        "itee-utils": "^5.4.4",
+        "itee-validators": "^5.3.9"
     },
     "peerDependencies": {
         "mongoose": "^6.2.1"
