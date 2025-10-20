@@ -1,4 +1,13 @@
-console.log('Itee.Database.MongoDB v1.1.7 - EsModule')
+/**
+ * ┳      ┳┳┓         ┓┓     ┓ ┓ ━┓      ┏┓ ┳┳┓   ┓  ┓  
+ * ┃╋┏┓┏┓ ┃┃┃┏┓┏┓┏┓┏┓┏┫┣┓  ┓┏┃ ┃  ┃  ━━  ┣ ┏┃┃┃┏┓┏┫┓┏┃┏┓
+ * ┻┗┗ ┗ •┛ ┗┗┛┛┗┗┫┗┛┗┻┗┛  ┗┛┻•┻• ╹      ┗┛┛┛ ┗┗┛┗┻┗┻┗┗ 
+ *                ┛                                     
+ * @desc    The MongoDB database implementation for Itee projects
+ * @author  [Tristan Valcke]{@link https://github.com/Itee}
+ * @license [BSD-3-Clause]{@link https://opensource.org/licenses/BSD-3-Clause}
+ * 
+ */
 import { TAbstractDataController, TAbstractDatabasePlugin, TAbstractDatabase } from 'itee-database';
 import { isNull, isUndefined, isEmptyArray, isInvalidDirectoryPath, isEmptyFile, isFunction } from 'itee-validators';
 import Mongoose from 'mongoose';
