@@ -1,3 +1,13 @@
+# [v1.2.0](https://github.com/Itee/itee-mongodb/compare/v1.1.7...v1.2.0) (2025-10-20)
+
+## ✨ New Features
+- [`a4cfd96`](https://github.com/Itee/itee-mongodb/commit/a4cfd96)  (package) use cz-emoji in favor of cz-conventional-changlog 
+- [`9143935`](https://github.com/Itee/itee-mongodb/commit/9143935)  (gulpfile) split gulpfile tasks into sub-tasks files 
+
+## 🐛 Bug Fixes
+- [`8136632`](https://github.com/Itee/itee-mongodb/commit/8136632)  (gulpfile) fix gulp.conf file extension 
+- [`a86b64c`](https://github.com/Itee/itee-mongodb/commit/a86b64c)  (rollup.conf) fix removed parameter name to fix iife generation
+
 ## [1.1.7](https://github.com/Itee/itee-mongodb/compare/v1.1.6...v1.1.7) (2025-09-08)
 
 
