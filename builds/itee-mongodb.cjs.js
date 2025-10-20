@@ -1,4 +1,13 @@
-console.log('Itee.Database.MongoDB v1.1.7 - CommonJs')
+/**
+ * ┳      ┳┳┓         ┓┓     ┓ ┓ ━┓      ┏┓            ┏┳ 
+ * ┃╋┏┓┏┓ ┃┃┃┏┓┏┓┏┓┏┓┏┫┣┓  ┓┏┃ ┃  ┃  ━━  ┃ ┏┓┏┳┓┏┳┓┏┓┏┓ ┃┏
+ * ┻┗┗ ┗ •┛ ┗┗┛┛┗┗┫┗┛┗┻┗┛  ┗┛┻•┻• ╹      ┗┛┗┛┛┗┗┛┗┗┗┛┛┗┗┛┛
+ *                ┛                                       
+ * @desc    The MongoDB database implementation for Itee projects
+ * @author  [Tristan Valcke]{@link https://github.com/Itee}
+ * @license [BSD-3-Clause]{@link https://opensource.org/licenses/BSD-3-Clause}
+ * 
+ */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
