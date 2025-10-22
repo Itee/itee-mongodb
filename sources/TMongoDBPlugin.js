@@ -10,16 +10,14 @@
 
 import { TAbstractDatabasePlugin } from 'itee-database'
 import { getFilesPathsUnder }      from 'itee-utils'
-import {
-    isEmptyFile,
-    isFunction,
-    isInvalidDirectoryPath
-}                                  from 'itee-validators'
+import { isFunction }              from 'itee-validators/sources/cores/functions/isFunction'
+import { isInvalidDirectoryPath }  from 'itee-validators/sources/file-system/directories/isValidDirectoryPath'
+import { isEmptyFile }             from 'itee-validators/sources/file-system/files/isEmptyFile'
 import { join }                    from 'path'
 
 class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
-    constructor ( parameters = {} ) {
+    constructor( parameters = {} ) {
 
         const _parameters = {
             ...{
@@ -36,37 +34,37 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     }
 
-    get schemas () {
+    get schemas() {
         return this._schemas
     }
 
-    set schemas ( value ) {
+    set schemas( value ) {
         this._schemas = value
     }
 
-    get types () {
+    get types() {
         return this._types
     }
 
-    set types ( value ) {
+    set types( value ) {
         this._types = value
     }
 
-    addSchema ( value ) {
+    addSchema( value ) {
 
         this._schemas.push( value )
         return this
 
     }
 
-    addType ( value ) {
+    addType( value ) {
 
         this._types.push( value )
         return this
 
     }
 
-    beforeRegisterRoutes ( Mongoose ) {
+    beforeRegisterRoutes( Mongoose ) {
 
         super.beforeRegisterRoutes( Mongoose )
 
@@ -78,7 +76,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     }
 
-    _searchLocalTypes () {
+    _searchLocalTypes() {
 
         const typesBasePath = join( this.__dirname, 'types' )
         if ( isInvalidDirectoryPath( typesBasePath ) ) {
@@ -102,7 +100,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     }
 
-    _registerTypes ( Mongoose ) {
+    _registerTypes( Mongoose ) {
 
         for ( let type of this._types ) {
 
@@ -113,7 +111,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     }
 
-    _searchLocalSchemas () {
+    _searchLocalSchemas() {
 
         const localSchemasBasePath = join( this.__dirname, 'schemas' )
         if ( isInvalidDirectoryPath( localSchemasBasePath ) ) {
@@ -144,7 +142,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
     }
 
-    _registerSchemas ( Mongoose ) {
+    _registerSchemas( Mongoose ) {
 
         for ( let schema of this._schemas ) {
 
