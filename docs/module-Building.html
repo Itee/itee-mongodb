@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Itee-MongoDB Module: Config-Karma-Benchs</title>
+	<title>Itee-MongoDB Module: Building</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="module-Config-EsLint.html">Config-EsLint</a></li><li><a href="module-Config-JsDoc.html">Config-JsDoc</a></li><li><a href="module-Config-Karma-Benchs.html">Config-Karma-Benchs</a></li><li><a href="module-Config-Karma-Units.html">Config-Karma-Units</a></li><li><a href="module-configs_Rollup.html">configs/Rollup</a></li><li><a href="module-configs_Rollup-Test.html">configs/Rollup-Test</a></li>
+					<li><a href="module-Building.html">Building</a></li>
 				</ul>
 			</li>
 			
@@ -41,6 +41,13 @@
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
 					<li><a href="TMongooseController.html">TMongooseController</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="global.html#npmrunbuild">npm run build</a></li><li><a href="global.html#npmrunbuild-test">npm run build-test</a></li><li><a href="global.html#npmrunclean">npm run clean</a></li><li><a href="global.html#npmrundoc">npm run doc</a></li><li><a href="global.html#npmrunhelpdefault">npm run help ( default )</a></li><li><a href="global.html#npmrunlint">npm run lint</a></li><li><a href="global.html#npmrunpatch">npm run patch</a></li><li><a href="global.html#npmrunrelease">npm run release</a></li><li><a href="global.html#npmruntest">npm run test</a></li>
 				</ul>
 			</li>
 			
@@ -72,7 +79,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: Config-Karma-Benchs</h1>
+	<h1 class="page-title">Module: Building</h1>
 <section>
 
 <header>
@@ -84,7 +91,22 @@
     <div class="container-overview">
     
         
-            <div class="description">The file manage the karma configuration for run benchmarks that are under `tests/benchmarks` folder</div>
+            <div class="description">The gulp tasks file. It allow to run some tasks from command line interface.<br>
+The available tasks are:
+<ul>
+<li>help</li>
+<li>patch</li>
+<li>clean</li>
+<li>lint</li>
+<li>doc</li>
+<li>unit</li>
+<li>bench</li>
+<li>test</li>
+<li>build-test</li>
+<li>build</li>
+<li>release</li>
+</ul>
+You could find a complet explanation about these tasks using: <b>npm run help</b>.</div>
         
 
         
@@ -136,8 +158,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="configs_karma.benchs.conf.js.html">configs/karma.benchs.conf.js</a>,
-				 <a href="configs_karma.benchs.conf.js.html#sunlight-1-line-1">line 1</a>
+				<a href="gulpfile.mjs.html">gulpfile.mjs</a>,
+				 <a href="gulpfile.mjs.html#sunlight-1-line-1">line 1</a>
 			</li>
 		</ul>
 	</dd>
@@ -158,141 +180,29 @@
     
 
     
+        <h3 class="subsection-title">Requires</h3>
 
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id="~CreateKarmaBenchmarkConfiguration"><span class="type-signature">&lt;generator, inner> </span>CreateKarmaBenchmarkConfiguration(config)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Will assign an appropriate configuration object about benchmarks for karma.
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
+        <ul>
+            <li><a href="https://github.com/gulpjs/gulp">gulp</a></li>
         
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
+            <li><a href="https://github.com/mlucool/gulp-jsdoc3">gulp-jsdoc3</a></li>
         
-        <th>Name</th>
+            <li><a href="https://github.com/adametry/gulp-eslint">gulp-eslint</a></li>
         
-
-        <th>Type</th>
-
+            <li><a href="https://github.com/sindresorhus/del">del</a></li>
         
-
+            <li><a href="https://github.com/substack/minimist">minimist</a></li>
         
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>config</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The karma configuration object to extend</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="configs_karma.benchs.conf.js.html">configs/karma.benchs.conf.js</a>,
-				 <a href="configs_karma.benchs.conf.js.html#sunlight-1-line-17">line 17</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
+            <li><a href="https://github.com/rollup/rollup">rollup</a></li>
+        
+            <li><a href="https://nodejs.org/api/path.html">path</a></li>
+        
+            <li><a href="https://github.com/karma-runner/karma">karma</a></li>
+        
+            <li><a href="https://github.com/js-cli/fancy-log">fancy-log</a></li>
+        
+            <li><a href="https://github.com/doowb/ansi-colors">ansi-colors</a></li>
+        </ul>
     
 
     
@@ -303,12 +213,6 @@
 
     
 
-    
-
-    
-</dd>
-
-        </dl>
     
 
     
@@ -360,7 +264,7 @@
 	</span>
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a>
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
