@@ -217,7 +217,9 @@ const configs = {
     } ),
     'check-bundling-from-esm-build-import': {
         input:     null,
-        external:  [ '' ],
+        external: [
+            'mongoose'
+        ],
         plugins:   [
             nodeResolve( {
                 preferBuiltins: true
@@ -259,6 +261,9 @@ const configs = {
     },
     'check-bundling-from-esm-files-import': {
         input:     null,
+        external: [
+            'mongoose'
+        ],
         plugins:   [
             nodeResolve( {
                 preferBuiltins: true
@@ -300,7 +305,9 @@ const configs = {
     },
     'check-bundling-from-esm-files-direct': {
         input:     null,
-        external:  [ '' ],
+        external: [
+            'mongoose'
+        ],
         plugins:   [
             nodeResolve( {
                 preferBuiltins: true
