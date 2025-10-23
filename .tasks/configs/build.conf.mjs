@@ -12,23 +12,23 @@
  * @requires {@link module: [rollup-plugin-node-resolve]{@link https://github.com/rollup/rollup-plugin-node-resolve}}
  * @requires {@link module: [rollup-plugin-terser]{@link https://github.com/TrySound/rollup-plugin-terser}}
  */
-import {
-    packageSourcesDirectory,
-    packageBuildsDirectory,
-    packageName,
-    packageDescription,
-    getPrettyPackageName,
-    getPrettyPackageVersion
-}                  from '../_utils.mjs'
-import {
-    join,
-    basename
-}                  from 'path'
 import commonjs    from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
-import { terser }  from 'rollup-plugin-terser'
-import cleanup     from 'rollup-plugin-cleanup'
 import figlet      from 'figlet'
+import {
+    basename,
+    join
+}                  from 'path'
+import cleanup     from 'rollup-plugin-cleanup'
+import { terser }  from 'rollup-plugin-terser'
+import {
+    getPrettyPackageName,
+    getPrettyPackageVersion,
+    packageBuildsDirectory,
+    packageDescription,
+    packageName,
+    packageSourcesDirectory
+}                  from '../_utils.mjs'
 
 // Utils
 
@@ -217,7 +217,7 @@ const configs = {
     } ),
     'check-bundling-from-esm-build-import': {
         input:     null,
-        external: [
+        external:  [
             'mongoose'
         ],
         plugins:   [
@@ -261,7 +261,7 @@ const configs = {
     },
     'check-bundling-from-esm-files-import': {
         input:     null,
-        external: [
+        external:  [
             'mongoose'
         ],
         plugins:   [
@@ -305,7 +305,7 @@ const configs = {
     },
     'check-bundling-from-esm-files-direct': {
         input:     null,
-        external: [
+        external:  [
             'mongoose'
         ],
         plugins:   [

@@ -13,7 +13,7 @@ import Mongoose              from 'mongoose'
 
 class TMongoDBDatabase extends TAbstractDatabase {
 
-    constructor ( parameters = {} ) {
+    constructor( parameters = {} ) {
 
         const _parameters = {
             ...{
@@ -36,13 +36,13 @@ class TMongoDBDatabase extends TAbstractDatabase {
 
     }
 
-    close ( onCloseCallback ) {
+    close( onCloseCallback ) {
 
         this._driver.connection.close( onCloseCallback )
 
     }
 
-    connect () {
+    connect() {
 
         this._driver
             .connect( this.databaseUrl, this.databaseOptions )
@@ -53,8 +53,8 @@ class TMongoDBDatabase extends TAbstractDatabase {
                 const regex      = /:(\w*)@/g
                 const matchs     = this.databaseUrl.match( regex )
                 const escapedUrl = ( matchs )
-                    ? this.databaseUrl.replace( matchs[ 0 ], ':*******@' )
-                    : this.databaseUrl
+                                   ? this.databaseUrl.replace( matchs[ 0 ], ':*******@' )
+                                   : this.databaseUrl
 
                 this.logger.log( `MongoDB at ${ escapedUrl } is connected !` )
             } )
@@ -67,12 +67,12 @@ class TMongoDBDatabase extends TAbstractDatabase {
 
     }
 
-    init () {
+    init() {
         super.init()
 
     }
 
-    on ( eventName, callback ) {
+    on( eventName, callback ) {
 
         const availableEventNames = [ 'connecting', 'connected', 'open', 'disconnecting', 'disconnected', 'reconnected', 'close', 'error' ]
 
