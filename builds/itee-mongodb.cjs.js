@@ -33,7 +33,7 @@ var Mongoose__default = /*#__PURE__*/_interopDefaultLegacy(Mongoose);
 
 class TMongooseController extends iteeDatabase.TAbstractDataController {
 
-    constructor ( parameters = {} ) {
+    constructor( parameters = {} ) {
 
         const _parameters = {
             ...{
@@ -51,13 +51,13 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
     }
 
-    get databaseSchema () {
+    get databaseSchema() {
 
         return this._databaseSchema
 
     }
 
-    set databaseSchema ( value ) {
+    set databaseSchema( value ) {
 
         if ( iteeValidators.isNull( value ) ) { throw new TypeError( 'Database schema cannot be null.' ) }
         if ( iteeValidators.isUndefined( value ) ) { throw new TypeError( 'Database schema cannot be undefined.' ) }
@@ -66,14 +66,14 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
     }
 
-    setDatabaseSchema ( value ) {
+    setDatabaseSchema( value ) {
 
         this.databaseSchema = value;
         return this
 
     }
 
-    _createMany ( datas, response ) {
+    _createMany( datas, response ) {
         super._createMany( datas, response );
 
         this._databaseSchema.create( datas, this.return( response ) );
@@ -81,21 +81,21 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
     }
 
     // Create
-    _createOne ( data, response ) {
+    _createOne( data, response ) {
         super._createOne( data, response );
 
         this._databaseSchema.create( data, this.return( response ) );
 
     }
 
-    _deleteAll ( response ) {
+    _deleteAll( response ) {
         super._deleteAll( response );
 
         this._databaseSchema.collection.drop( TMongooseController.return( response ) );
 
     }
 
-    _deleteMany ( ids, response ) {
+    _deleteMany( ids, response ) {
         super._deleteMany( ids, response );
 
         this._databaseSchema.deleteMany( { '_id': { $in: ids } }, this.return( response ) );
@@ -103,7 +103,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
     }
 
     // Delete
-    _deleteOne ( id, response ) {
+    _deleteOne( id, response ) {
         super._deleteOne( id, response );
 
         this._databaseSchema
@@ -113,14 +113,14 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
     }
 
-    _deleteWhere ( query, response ) {
+    _deleteWhere( query, response ) {
         super._deleteWhere( query, response );
 
         this._databaseSchema.deleteMany( query, this.return( response ) );
 
     }
 
-    _readAll ( projection, response ) {
+    _readAll( projection, response ) {
         super._readAll( projection, response );
 
         this._databaseSchema
@@ -132,7 +132,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
     }
 
-    _readMany ( ids, projection, response ) {
+    _readMany( ids, projection, response ) {
         super._readMany( ids, projection, response );
 
         this._databaseSchema
@@ -158,7 +158,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
     }
 
     // Read
-    _readOne ( id, projection, response ) {
+    _readOne( id, projection, response ) {
         super._readOne( id, projection, response );
 
         this._databaseSchema
@@ -178,7 +178,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
     }
 
-    _readWhere ( query, projection, response ) {
+    _readWhere( query, projection, response ) {
         super._readWhere( query, projection, response );
 
         this._databaseSchema
@@ -190,14 +190,14 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
     }
 
-    _updateAll ( update, response ) {
+    _updateAll( update, response ) {
         super._updateAll( update, response );
 
         this._databaseSchema.update( {}, update, { multi: true }, TMongooseController.return( response ) );
 
     }
 
-    _updateMany ( ids, updates, response ) {
+    _updateMany( ids, updates, response ) {
         super._updateMany( ids, updates, response );
 
         this._databaseSchema.update( { _id: { $in: ids } }, updates, { multi: true }, TMongooseController.return( response ) );
@@ -205,7 +205,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
     }
 
     // Update
-    _updateOne ( id, update, response ) {
+    _updateOne( id, update, response ) {
         super._updateOne( id, update, response );
 
         this._databaseSchema
@@ -216,7 +216,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
 
     }
 
-    _updateWhere ( query, update, response ) {
+    _updateWhere( query, update, response ) {
         super._updateWhere( query, update, response );
 
         this._databaseSchema.update( query, update, { multi: true }, TMongooseController.return( response ) );
@@ -676,7 +676,7 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
 class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
 
-    constructor ( parameters = {} ) {
+    constructor( parameters = {} ) {
 
         const _parameters = {
             ...{
@@ -699,13 +699,13 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
 
     }
 
-    close ( onCloseCallback ) {
+    close( onCloseCallback ) {
 
         this._driver.connection.close( onCloseCallback );
 
     }
 
-    connect () {
+    connect() {
 
         this._driver
             .connect( this.databaseUrl, this.databaseOptions )
@@ -716,8 +716,8 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
                 const regex      = /:(\w*)@/g;
                 const matchs     = this.databaseUrl.match( regex );
                 const escapedUrl = ( matchs )
-                    ? this.databaseUrl.replace( matchs[ 0 ], ':*******@' )
-                    : this.databaseUrl;
+                                   ? this.databaseUrl.replace( matchs[ 0 ], ':*******@' )
+                                   : this.databaseUrl;
 
                 this.logger.log( `MongoDB at ${ escapedUrl } is connected !` );
             } )
@@ -730,12 +730,12 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
 
     }
 
-    init () {
+    init() {
         super.init();
 
     }
 
-    on ( eventName, callback ) {
+    on( eventName, callback ) {
 
         const availableEventNames = [ 'connecting', 'connected', 'open', 'disconnecting', 'disconnected', 'reconnected', 'close', 'error' ];
 
