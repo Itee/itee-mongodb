@@ -23,6 +23,7 @@ import { join } from 'path';
  * @classdesc The TMongooseController is the base class to perform CRUD operations on the database
  */
 
+
 class TMongooseController extends TAbstractDataController {
 
     constructor( parameters = {} ) {
@@ -266,6 +267,7 @@ function isFunction( data ) {
  *
  */
 
+
 /**
  * Check if given data is a valid file path
  *
@@ -365,6 +367,7 @@ function isNotString( data ) {
  *
  */
 
+
 /**
  * Check if given path is a directory path
  *
@@ -398,6 +401,7 @@ function isDirectoryPath( path ) {
  * }
  *
  */
+
 
 /**
  * Check if given data is a valid directory path
@@ -440,6 +444,7 @@ function isInvalidDirectoryPath( data ) {
  *
  */
 
+
 /**
  * Check if given path is a file path
  *
@@ -477,6 +482,7 @@ function isFilePath( path ) {
  *
  */
 
+
 /**
  * Check if given file path is an empty file more or less a threshold in bytes.
  *
@@ -502,6 +508,7 @@ function isEmptyFile( filePath, threshold = 0 ) {
  * @example Todo
  *
  */
+
 
 class TMongoDBPlugin extends TAbstractDatabasePlugin {
 
@@ -665,6 +672,7 @@ class TMongoDBPlugin extends TAbstractDatabasePlugin {
  * @example Todo
  *
  */
+
 
 class TMongoDBDatabase extends TAbstractDatabase {
 

@@ -10,8 +10,6 @@
  */
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var iteeDatabase = require('itee-database');
 var iteeValidators = require('itee-validators');
 var Mongoose = require('mongoose');
@@ -19,9 +17,9 @@ var iteeUtils = require('itee-utils');
 var fs = require('fs');
 var path = require('path');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
-var Mongoose__default = /*#__PURE__*/_interopDefaultLegacy(Mongoose);
+var Mongoose__default = /*#__PURE__*/_interopDefault(Mongoose);
 
 /**
  * @author [Tristan Valcke]{@link https://github.com/Itee}
@@ -30,6 +28,7 @@ var Mongoose__default = /*#__PURE__*/_interopDefaultLegacy(Mongoose);
  * @class TMongooseController
  * @classdesc The TMongooseController is the base class to perform CRUD operations on the database
  */
+
 
 class TMongooseController extends iteeDatabase.TAbstractDataController {
 
@@ -41,7 +40,7 @@ class TMongooseController extends iteeDatabase.TAbstractDataController {
             },
             ...parameters,
             ...{
-                driver: Mongoose__default["default"]
+                driver: Mongoose__default.default
             }
         };
 
@@ -274,6 +273,7 @@ function isFunction( data ) {
  *
  */
 
+
 /**
  * Check if given data is a valid file path
  *
@@ -373,6 +373,7 @@ function isNotString( data ) {
  *
  */
 
+
 /**
  * Check if given path is a directory path
  *
@@ -406,6 +407,7 @@ function isDirectoryPath( path ) {
  * }
  *
  */
+
 
 /**
  * Check if given data is a valid directory path
@@ -448,6 +450,7 @@ function isInvalidDirectoryPath( data ) {
  *
  */
 
+
 /**
  * Check if given path is a file path
  *
@@ -485,6 +488,7 @@ function isFilePath( path ) {
  *
  */
 
+
 /**
  * Check if given file path is an empty file more or less a threshold in bytes.
  *
@@ -510,6 +514,7 @@ function isEmptyFile( filePath, threshold = 0 ) {
  * @example Todo
  *
  */
+
 
 class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
 
@@ -674,6 +679,7 @@ class TMongoDBPlugin extends iteeDatabase.TAbstractDatabasePlugin {
  *
  */
 
+
 class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
 
     constructor( parameters = {} ) {
@@ -688,7 +694,7 @@ class TMongoDBDatabase extends iteeDatabase.TAbstractDatabase {
             },
             ...parameters,
             ...{
-                driver: Mongoose__default["default"]
+                driver: Mongoose__default.default
             }
         };
 
