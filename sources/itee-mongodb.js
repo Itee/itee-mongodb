@@ -8,7 +8,7 @@
  *
  */
 
-export * from './TMongooseController'
-export * from './TMongoDBPlugin'
-export * from './TMongoDBDatabase'
+export * from './TMongooseController.js'
+export * from './TMongoDBPlugin.js'
+export * from './TMongoDBDatabase.js'
 
