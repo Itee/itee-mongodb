@@ -16,16 +16,16 @@
   "private":          false,
   "repository":       {
     "type": "git",
-    "url":  "https://github.com/Itee/itee-mongodb.git"
+    "url":  "https://github.com/Itee/mongodb.git"
   },
   "type":             "module",
-  "main":             "builds/itee-mongodb.cjs.js",
-  "module":           "builds/itee-mongodb.esm.js",
+  "main":             "builds/mongodb.cjs.js",
+  "module":           "builds/mongodb.esm.js",
   "browser":          "",
-  "homepage":         "https://github.com/Itee/itee-mongodb#readme",
+  "homepage":         "https://github.com/Itee/mongodb#readme",
   "man":              "./docs/index.html",
   "bugs":             {
-    "url": "https://github.com/Itee/itee-mongodb/issues"
+    "url": "https://github.com/Itee/mongodb/issues"
   },
   "engines":          {
     "node": ">=20"
