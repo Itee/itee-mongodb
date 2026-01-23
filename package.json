@@ -72,6 +72,6 @@
     "mongoose": "^8.19.2"
   },
   "devDependencies": {
-    "@itee/tasks": "^1.4.4"
+    "@itee/tasks": "^1.4.6"
   }
 }
