@@ -16,7 +16,7 @@ import Mongoose                    from 'mongoose'
 
 class TMongooseController extends TAbstractDataController {
 
-    constructor ( parameters = {} ) {
+    constructor( parameters = {} ) {
 
         const _parameters = {
             ...{
@@ -34,13 +34,13 @@ class TMongooseController extends TAbstractDataController {
 
     }
 
-    get databaseSchema () {
+    get databaseSchema() {
 
         return this._databaseSchema
 
     }
 
-    set databaseSchema ( value ) {
+    set databaseSchema( value ) {
 
         if ( isNull( value ) ) { throw new TypeError( 'Database schema cannot be null.' ) }
         if ( isUndefined( value ) ) { throw new TypeError( 'Database schema cannot be undefined.' ) }
@@ -49,14 +49,14 @@ class TMongooseController extends TAbstractDataController {
 
     }
 
-    setDatabaseSchema ( value ) {
+    setDatabaseSchema( value ) {
 
         this.databaseSchema = value
         return this
 
     }
 
-    _createMany ( datas, response ) {
+    _createMany( datas, response ) {
         super._createMany( datas, response )
 
         this._databaseSchema.create( datas, this.return( response ) )
@@ -64,21 +64,21 @@ class TMongooseController extends TAbstractDataController {
     }
 
     // Create
-    _createOne ( data, response ) {
+    _createOne( data, response ) {
         super._createOne( data, response )
 
         this._databaseSchema.create( data, this.return( response ) )
 
     }
 
-    _deleteAll ( response ) {
+    _deleteAll( response ) {
         super._deleteAll( response )
 
         this._databaseSchema.collection.drop( TMongooseController.return( response ) )
 
     }
 
-    _deleteMany ( ids, response ) {
+    _deleteMany( ids, response ) {
         super._deleteMany( ids, response )
 
         this._databaseSchema.deleteMany( { '_id': { $in: ids } }, this.return( response ) )
@@ -86,7 +86,7 @@ class TMongooseController extends TAbstractDataController {
     }
 
     // Delete
-    _deleteOne ( id, response ) {
+    _deleteOne( id, response ) {
         super._deleteOne( id, response )
 
         this._databaseSchema
@@ -96,14 +96,14 @@ class TMongooseController extends TAbstractDataController {
 
     }
 
-    _deleteWhere ( query, response ) {
+    _deleteWhere( query, response ) {
         super._deleteWhere( query, response )
 
         this._databaseSchema.deleteMany( query, this.return( response ) )
 
     }
 
-    _readAll ( projection, response ) {
+    _readAll( projection, response ) {
         super._readAll( projection, response )
 
         this._databaseSchema
@@ -115,7 +115,7 @@ class TMongooseController extends TAbstractDataController {
 
     }
 
-    _readMany ( ids, projection, response ) {
+    _readMany( ids, projection, response ) {
         super._readMany( ids, projection, response )
 
         this._databaseSchema
@@ -141,7 +141,7 @@ class TMongooseController extends TAbstractDataController {
     }
 
     // Read
-    _readOne ( id, projection, response ) {
+    _readOne( id, projection, response ) {
         super._readOne( id, projection, response )
 
         this._databaseSchema
@@ -161,7 +161,7 @@ class TMongooseController extends TAbstractDataController {
 
     }
 
-    _readWhere ( query, projection, response ) {
+    _readWhere( query, projection, response ) {
         super._readWhere( query, projection, response )
 
         this._databaseSchema
@@ -173,14 +173,14 @@ class TMongooseController extends TAbstractDataController {
 
     }
 
-    _updateAll ( update, response ) {
+    _updateAll( update, response ) {
         super._updateAll( update, response )
 
         this._databaseSchema.update( {}, update, { multi: true }, TMongooseController.return( response ) )
 
     }
 
-    _updateMany ( ids, updates, response ) {
+    _updateMany( ids, updates, response ) {
         super._updateMany( ids, updates, response )
 
         this._databaseSchema.update( { _id: { $in: ids } }, updates, { multi: true }, TMongooseController.return( response ) )
@@ -188,7 +188,7 @@ class TMongooseController extends TAbstractDataController {
     }
 
     // Update
-    _updateOne ( id, update, response ) {
+    _updateOne( id, update, response ) {
         super._updateOne( id, update, response )
 
         this._databaseSchema
@@ -199,7 +199,7 @@ class TMongooseController extends TAbstractDataController {
 
     }
 
-    _updateWhere ( query, update, response ) {
+    _updateWhere( query, update, response ) {
         super._updateWhere( query, update, response )
 
         this._databaseSchema.update( query, update, { multi: true }, TMongooseController.return( response ) )
