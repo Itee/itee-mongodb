@@ -1,5 +1,5 @@
 {
-  "name": "itee-mongodb",
+  "name": "@itee/mongodb",
   "version": "2.0.0",
   "description": "The MongoDB database implementation for Itee projects",
   "keywords": [
