@@ -13,7 +13,7 @@ import { getFilesPathsUnder }      from 'itee-utils'
 import { isFunction }              from 'itee-validators/sources/cores/functions/isFunction.js'
 import { isInvalidDirectoryPath }  from 'itee-validators/sources/file-system/directories/isValidDirectoryPath.js'
 import { isEmptyFile }             from 'itee-validators/sources/file-system/files/isEmptyFile.js'
-import { join }                    from 'path'
+import { join }                    from 'node:path'
 
 class TMongoDBPlugin extends TAbstractDatabasePlugin {
 

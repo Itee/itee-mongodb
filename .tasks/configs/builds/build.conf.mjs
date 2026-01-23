@@ -4,7 +4,7 @@ export default createRollupConfigs( {
     formats:     [ 'esm', 'cjs' ],
     externalMap: {
         'esm': [
-            'path', // Todo: use itee-utils
+            'node:path', // Todo: use itee-utils
             'mongoose',
 
             'itee-database',
@@ -12,7 +12,7 @@ export default createRollupConfigs( {
             'itee-utils',
         ],
         'cjs': [
-            'path', // Todo: use itee-utils
+            'node:path', // Todo: use itee-utils
             'mongoose',
 
             'itee-database',
