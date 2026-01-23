@@ -1,3 +1,11 @@
+# [v3.0.0](https://github.com/Itee/mongodb/compare/v2.0.0...v3.0.0) (2026-01-23)
+
+## 🐛 Bug Fixes
+- [`c189d70`](https://github.com/Itee/mongodb/commit/c189d70)  (package) apply package override to fix trust publishing 
+
+## 💥 Breaking Changes
+- [`3695fbb`](https://github.com/Itee/mongodb/commit/3695fbb)  (package) change package name itee-mongodb to scoped version @itee/mongodb
+
 # [v2.0.0](https://github.com/Itee/mongodb/compare/v1.2.0...v2.0.0) (2026-01-23)
 
 ## ✨ New Features
