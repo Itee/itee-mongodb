@@ -4,20 +4,20 @@ export default createRollupConfigs( {
     formats:     [ 'esm', 'cjs' ],
     externalMap: {
         'esm': [
-            'node:path', // Todo: use itee-utils
+            'node:path', // Todo: use @itee/utils
             'mongoose',
 
-            'itee-database',
-            'itee-validators',
-            'itee-utils',
+            '@itee/database',
+            '@itee/validators',
+            '@itee/utils',
         ],
         'cjs': [
-            'node:path', // Todo: use itee-utils
+            'node:path', // Todo: use @itee/utils
             'mongoose',
 
-            'itee-database',
-            'itee-validators',
-            'itee-utils',
+            '@itee/database',
+            '@itee/validators',
+            '@itee/utils',
         ],
     }
 } )

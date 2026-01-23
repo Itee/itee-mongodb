@@ -8,7 +8,7 @@
  *
  */
 
-import { TAbstractDatabase } from 'itee-database'
+import { TAbstractDatabase } from '@itee/database'
 import Mongoose              from 'mongoose'
 
 class TMongoDBDatabase extends TAbstractDatabase {
