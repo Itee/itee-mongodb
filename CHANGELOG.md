@@ -1,3 +1,21 @@
+# [v2.0.0](https://github.com/Itee/mongodb/compare/v1.2.0...v2.0.0) (2026-01-23)
+
+## ✨ New Features
+- [`8e2b586`](https://github.com/Itee/mongodb/commit/8e2b586)  (tasks) upgrade tasks to latest itee and gulp standards 
+- [`3cfab9f`](https://github.com/Itee/mongodb/commit/3cfab9f)  (tasks) update default tasks to latest itee standards 
+- [`52e440e`](https://github.com/Itee/mongodb/commit/52e440e)  (tests) remove the need to build backend file to run unit and benches tests 
+
+## 🐛 Bug Fixes
+- [`bc395e3`](https://github.com/Itee/mongodb/commit/bc395e3)  (gulpfile) fix broken import links 
+- [`2ac59c1`](https://github.com/Itee/mongodb/commit/2ac59c1)  (TMongoDBPlugin) fix broken itee-utils import on fs methods 
+- [`edb7e64`](https://github.com/Itee/mongodb/commit/edb7e64)  (gulpfile-refresh) use external script that do not require gulp to be loaded for refreshing it 
+- [`e7a604e`](https://github.com/Itee/mongodb/commit/e7a604e)  (compute-unit-tests-task) fix default template for empty units 
+- [`c21d12d`](https://github.com/Itee/mongodb/commit/c21d12d)  (tasks) fix frontend task run on empty test generation 
+- [`698fe9e`](https://github.com/Itee/mongodb/commit/698fe9e)  (release) fix release task and update others to latest standards 
+
+## 💥 Breaking Changes
+- [`0266f5e`](https://github.com/Itee/mongodb/commit/0266f5e)  (node) drop nodejs v18 support and introduce nodejs v24
+
 # [v1.2.0](https://github.com/Itee/itee-mongodb/compare/v1.1.7...v1.2.0) (2025-10-20)
 
 ## ✨ New Features
