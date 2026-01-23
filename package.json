@@ -16,7 +16,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Itee/mongodb.git"
+    "url": "git+https://github.com/Itee/mongodb.git"
   },
   "type": "module",
   "main": "builds/mongodb.cjs.js",
